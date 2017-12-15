@@ -1,0 +1,42 @@
+﻿@using OpapProject.Models
+@model List<Draw>
+
+
+
+
+<div class="container">
+    <h2>Movies List</h2>
+    <div class="table-responsive" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Αριθμός Κλήρωσης</th>
+                    <th>Ημερομηνία Κλήρωσης</th>
+                    <th>1ος Αριθμός</th>
+                    <th>2ος Αριθμός</th>
+                    <th>3ος Αριθμός</th>
+                    <th>4ος Αριθμός</th>
+                    <th>5ος Αριθμός</th>
+                    <th>Τζόκερ</th>
+                    <th>Τζακπότ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var draw in Model)
+                {
+                <tr>
+                    <td>@draw.DrawNumber</td>
+                    <td>@draw.DrawDate</td>
+                    <td>@draw.Number1</td>
+                    <td>@draw.Number2</td>
+                    <td>@draw.Number3</td>
+                    <td>@draw.Number4</td>
+                    <td>@draw.Number5</td>
+                    <td>@draw.Joker</td>
+                    <td>@draw.Jackpot</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
