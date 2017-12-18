@@ -8,6 +8,7 @@ namespace OpapProject.Models
 {
     public class Draw
     {
+        //Properties
         [Required]
         public int id { get; set; }
 
@@ -37,5 +38,7 @@ namespace OpapProject.Models
 
         [Required]
         public bool Jackpot { get; set; }
+
+        //Methods
     }
 }

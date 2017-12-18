@@ -18,14 +18,15 @@ namespace OpapProject.Controllers
 
         public IActionResult Index()
         {
-            var DrawList = _context.Klirosis.ToList();
-            return View(DrawList);
+            var drawList = _context.Klirosis.ToList();
+            return View(drawList);
         }
 
 
         public IActionResult LastTen()
         {
-            return View();
+            var drawList = _context.Klirosis.ToList();
+            return View(drawList);
         }
     }
 }
