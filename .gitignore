@@ -290,4 +290,4 @@ __pycache__/
 *.xsd.cs
 
 appsettings.json
-
+opapProject/Data/Migrations
