@@ -40,6 +40,7 @@ namespace opapProject
             // Add application services.
             services.AddTransient<IDrawRepository, EfDrawRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IWebApiFetch, WebApiFetch>();
 
             services.AddMvc();
         }
