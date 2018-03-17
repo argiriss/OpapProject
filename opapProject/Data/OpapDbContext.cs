@@ -18,3 +18,7 @@ namespace opapProject.Data
         }
     }
 }
+
+//How to add-migration when i have two db contexts
+//Add-Migration InitialCreate -Context MainDbContext -OutputDir Data/Migrations
+//update-database -context MainDbContext

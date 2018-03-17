@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using opapProject.Data;
 using opapProject.Models;
 using opapProject.Services;
+using opapProject.Models.Services;
 
 namespace opapProject
 {
@@ -37,6 +38,7 @@ namespace opapProject
                 .AddDefaultTokenProviders();
 
             // Add application services.
+            services.AddTransient<IDrawRepository, EfDrawRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
