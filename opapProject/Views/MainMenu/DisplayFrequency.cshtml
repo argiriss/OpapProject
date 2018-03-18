@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Draw>
+
+<div class="row content">
+
+    @await Html.PartialAsync("_NavSide")
+
+    <div class="col-sm-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Α/Α</th>
+                    <th>Συχνότητα Εμφάνισης</th>
+                </tr>
+            </thead>
+            <tbody id="displayFrequencyId">
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+    var count = [];
+    //Initialize array
+    for (var i = 0; i <= 45; i++) {
+        count[i] = 0;
+    }
+
+      @foreach (Draw d in Model)
+      {
+          @:count[@d.Number1] += 1;
+          @:count[@d.Number2] += 1;
+          @:count[@d.Number3] += 1;
+          @:count[@d.Number4] += 1;
+          @:count[@d.Number5] += 1;
+      }
+
+    var parent = document.getElementById('displayFrequencyId');
+    var td1, td2,trElem;
+    for (var i = 1; i <= 45; i++) {
+        trElem = document.createElement("tr");
+        td1 = document.createElement("td");
+        td1.innerHTML = i;
+        td2 = document.createElement("td");
+        td2.innerHTML = count[i];
+        trElem.appendChild(td1);
+        trElem.appendChild(td2);
+        parent.appendChild(trElem);
+    }  
+</script>
