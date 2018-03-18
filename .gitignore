@@ -289,5 +289,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+opapProject/opapProject.csproj
 appsettings.json
 opapProject/Data/Migrations

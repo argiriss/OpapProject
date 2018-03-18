@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace opapProject.Models.Services
 {
-    interface IDrawRepository
+    public interface IDrawRepository
     {
         IQueryable<Draw> Draws { get; }
 

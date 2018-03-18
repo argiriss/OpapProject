@@ -7,6 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -33,49 +34,20 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Index">Όλες οι κληρώσεις</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="About">Δέκα τελευταίες κληρώσεις</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Contact">Συχνότητα εμφάνισης</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Index">Συχνότητα καθυστέρησης</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="About">Άθροισμα των πέντε αριθμών της κλήρωσης και συχνότητα εμφάνισης του αθροίσματος</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Contact">Δύο αριθμοί που συνδυάστηκαν σε μεγάλο ποσοστό κληρώσεων</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Index">Τρεις αριθμοί που συνδυάστηκαν σε μεγάλο ποσοστό κληρώσεων</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="About">Τέσσερις αριθμοί που συνδυάστηκαν σε μεγάλο ποσοστό κληρώσεων</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Contact">Πιθανότητα συνεχόμενης τριάδας αριθμών (πχ 23,24,25)</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Index">Πιθανότητα τριάδας αριθμών στην ίδια δεκάδα (πχ 10,14,19)</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="About">Πιθανότητα να εμφανιστεί ένας αριθμός της τελευταίας κλήρωσης στην επόμενη</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Contact">Συχνότητα εμφάνισης και καθυστέρησης του αριθμού Joker</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Index">Στατιστικά δέκα τελευταίων κληρώσεων</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="About">HOT νούμερα για την επόμενη κλήρωση με βάση στατιστικά</a></li>
-                            <li><a asp-area="" asp-controller="MainMenu" asp-action="Contact">HOT νούμερα για την επόμενη κλήρωση με το σκεπτικό αδύνατον να βγουν</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Game<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-area="" asp-controller="Game" asp-action="Index">Δοκίμασε τυχαία νούμερα για να δεις πόσο τυχερός είσαι (5+Joker)</a></li>
-                            <li><a asp-area="" asp-controller="Game" asp-action="About">Δοκίμασε τυχαία νούμερα για να δεις πόσο τυχερός είσαι (5 without Joker)</a></li>
-                            <li><a asp-area="" asp-controller="Game" asp-action="Contact">Δοκίμασε τυχαία νούμερα για να δεις πόσο τυχερός είσαι (5 without Joker)</a></li>
-                            <li><a asp-area="" asp-controller="Game" asp-action="Index">Δοκίμασε τυχαία νούμερα για να δεις πόσο τυχερός είσαι (4+Joker)</a></li>
-                            <li><a asp-area="" asp-controller="Game" asp-action="About">Δοκίμασε τυχαία νούμερα για να δεις πόσο τυχερός είσαι (4 without Joker)</a></li>
-                            <li><a asp-area="" asp-controller="Game" asp-action="Contact">Δοκίμασε τυχαία νούμερα για να δεις πόσο τυχερός είσαι (3 without Joker)</a></li>
-                        </ul>
-                    </li>
+                    <li><a asp-area="" asp-controller="MainMenu" asp-action="Index">Menu</a></li>
+                    <li><a asp-area="" asp-controller="Game" asp-action="Index">Game</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - opapProject</p>
-        </footer>
     </div>
+    <hr />
+    <footer class="row content text-center">
+        <p>&copy; 2018 - opapProject</p>
+    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

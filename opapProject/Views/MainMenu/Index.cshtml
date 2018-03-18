@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Draw>
+
+<div class="row content">
+    @await Html.PartialAsync("_NavSide")
+   
+    <div class="col-sm-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Α/Α</th>
+                    <th>Νούμερο 1</th>
+                    <th>Νούμερο 2</th>
+                    <th>Νούμερο 3</th>
+                    <th>Νούμερο 4</th>
+                    <th>Νούμερο 5</th>
+                    <th>Joker</th>
+                    <th>Jackpot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Draw d in Model)
+                {
+                    <tr>
+                        <td>@d.DrawNumber</td>
+                        <td>@d.Number1</td>
+                        <td>@d.Number2</td>
+                        <td>@d.Number3</td>
+                        <td>@d.Number4</td>
+                        <td>@d.Number5</td>
+                        <td>@d.Joker</td>
+                        <td>@d.Jackpot</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
