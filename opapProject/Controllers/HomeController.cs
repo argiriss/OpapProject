@@ -24,7 +24,9 @@ namespace opapProject.Controllers
         public async Task<IActionResult> Index()
         {
             var sendDraws = await _webApiFetch.WebApiFetchAsync("http://applications.opap.gr/DrawsRestServices/joker/last.json");
-            DrawData draws = JsonConvert.DeserializeObject<DrawData>(sendDraws);
+            var stringLength = sendDraws.Length-9;
+            var temp = sendDraws.Substring(8, stringLength);
+            var draws = JsonConvert.DeserializeObject<DrawData>(temp);
 
             return View(draws);
         }

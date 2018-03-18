@@ -7,8 +7,9 @@ namespace opapProject.Services.DrawDataObj
 {
     public class DrawData
     {
-        public DateTime drawTime { get; set; }
-        public int drawNo { get; set; }
-        public List<int> results { get; set; }
+            public string drawTime { get; set; }
+            public int drawNo { get; set; }
+            public int[] results { get; set; }
+
     }
 }
