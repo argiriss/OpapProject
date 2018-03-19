@@ -33,5 +33,25 @@ namespace opapProject.Controllers
             var listOfDraws = _repository.Draws.OrderByDescending(x => x.DrawNumber).ToList();
             return View(listOfDraws);
         }
+
+        public IActionResult SumOfFiveNums()
+        {
+            return View();
+        }
+
+        public IActionResult CombinationOfThree()
+        {
+            return View();
+        }
+
+        public IActionResult CombinationOfFour()
+        {
+            return View();
+        }
+
+        public IActionResult CombinationOfFive()
+        {
+            return View();
+        }
     }
 }

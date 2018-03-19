@@ -1,16 +1,21 @@
 ﻿<div class="col-sm-2 sidenav">
     <a asp-area="" asp-controller="MainMenu" asp-action="Index">Όλες οι κληρώσεις</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="DisplayFrequency">Συχνότητα εμφάνισης</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="DelayFrequency">Συχνότητα καθυστέρησης</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="About">Άθροισμα των πέντε αριθμών της κλήρωσης και συχνότητα εμφάνισης του αθροίσματος</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Contact">Δύο αριθμοί που συνδυάστηκαν σε μεγάλο ποσοστό κληρώσεων</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Index">Τρεις αριθμοί που συνδυάστηκαν σε μεγάλο ποσοστό κληρώσεων</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="About">Τέσσερις αριθμοί που συνδυάστηκαν σε μεγάλο ποσοστό κληρώσεων</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Contact">Συνεχόμενη τριάδα αριθμών (πχ 23,24,25)</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Index">Τριάδα αριθμών στην ίδια δεκάδα (πχ 10,14,19)</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="About">Πιθανότητα να εμφανιστεί ένας αριθμός της τελευταίας κλήρωσης στην επόμενη</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Contact">Συχνότητα εμφάνισης και καθυστέρησης του αριθμού Joker</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Index">Στατιστικά δέκα τελευταίων κληρώσεων</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="About">HOT νούμερα για την επόμενη κλήρωση με βάση στατιστικά</a>
-    <a asp-area="" asp-controller="MainMenu" asp-action="Contact">HOT νούμερα για την επόμενη κλήρωση με το σκεπτικό αδύνατον να βγουν</a>
+    <button class="dropdown-btn">Στατιστικά Των Πέντε Αριθμών<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a asp-area="" asp-controller="MainMenu" asp-action="DisplayFrequency">Συχνότητα εμφάνισης</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="DelayFrequency">Καθυστέρηση Αριθμών</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="SumOfFiveNums">Άθροισμα των πέντε</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="CombinationOfThree">Συνδυασμός των Τριών</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="CombinationOfFour">Συνδυασμός των Τεσσάρων</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="CombinationOfFive">Συνδυασμός των Πέντε</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="ThreeInARow">Τρεις στην σειρά</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="Index">'Iδια δεκάδα</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="DrawRepeat">Επανάληψη Κλήρωσης</a>
+    </div>  
+    <button class="dropdown-btn">Στατιστικά Αριθμού Joker<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a asp-area="" asp-controller="MainMenu" asp-action="JokerDisplayFrequency">Εμφάνιση</a>
+        <a asp-area="" asp-controller="MainMenu" asp-action="JokerDelay">Καθυστέρηση</a>
+    </div>   
+    <a asp-area="" asp-controller="MainMenu" asp-action="HotNumbers">HOT νούμερα</a>
 </div>
