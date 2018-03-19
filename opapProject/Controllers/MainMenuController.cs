@@ -26,7 +26,12 @@ namespace opapProject.Controllers
         {
             var listOfDraws = _repository.Draws.ToList();
             return View(listOfDraws);
-            
+        }
+
+        public IActionResult DelayFrequency()
+        {
+            var listOfDraws = _repository.Draws.OrderByDescending(x => x.DrawNumber).ToList();
+            return View(listOfDraws);
         }
     }
 }

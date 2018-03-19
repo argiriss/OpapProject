@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Draw>
+
+<div class="row content">
+
+    @await Html.PartialAsync("_NavSide")
+
+    <div class="col-sm-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Α/Α</th>
+                    <th>Καθυστέρηση Εμφάνισης</th>
+                </tr>
+            </thead>
+            <tbody id="delayFrequencyId"></tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+    var count = [];
+    var counter;
+
+    @for (var i = 1; i <= 45; i++) {
+        @:counter = 0;
+         @foreach (Draw d in Model)
+         {
+             if (i==d.Number1 || i == d.Number2 || i == d.Number3 || i == d.Number4 || i == d.Number5)
+             {
+                @:count[@i] = counter;
+                break;
+             }
+             @:counter++;
+         }
+    }
+
+    var parent = document.getElementById('delayFrequencyId');
+    var td1, td2,trElem;
+    for (var i = 1; i <= 45; i++) {
+        trElem = document.createElement("tr");
+        td1 = document.createElement("td");
+        td1.innerHTML = i;
+        td2 = document.createElement("td");
+        td2.innerHTML = count[i];
+        trElem.appendChild(td1);
+        trElem.appendChild(td2);
+        parent.appendChild(trElem);
+    }
+</script>
