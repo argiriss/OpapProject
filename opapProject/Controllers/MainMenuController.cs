@@ -36,7 +36,8 @@ namespace opapProject.Controllers
 
         public IActionResult SumOfFiveNums()
         {
-            return View();
+            var listOfDraws = _repository.Draws.ToList();
+            return View(listOfDraws);
         }
 
         public IActionResult CombinationOfThree()

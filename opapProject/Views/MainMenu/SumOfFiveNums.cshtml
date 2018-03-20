@@ -4,49 +4,68 @@
 
     @await Html.PartialAsync("_NavSide")
 
-    <div class="col-sm-10">
-        <h2>Άθροισμα των πέντε αριθμών της κλήρωσης και συχνότητα εμφάνισης του αθροίσματος</</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Α/Α</th>
-                    <th>Καθυστέρηση Εμφάνισης</th>
-                </tr>
-            </thead>
-            <tbody id="delayFrequencyId"></tbody>
-        </table>
+    <div class="col-sm-10" id="sumOfFiveId">
+        <h3>Άθροισμα των πέντε αριθμών της κλήρωσης και συχνότητα εμφάνισης του αθροίσματος</h3>
 
     </div>
 
 </div>
 
 <script>
-    var count = [];
-    var counter;
+    var count = [0,0,0,0,0,0];
+    var lengthOfDraws=0;
 
-    @for (var i = 1; i <= 45; i++) {
-        @:counter = 0;
          @foreach (Draw d in Model)
          {
-             if (i==d.Number1 || i == d.Number2 || i == d.Number3 || i == d.Number4 || i == d.Number5)
+             var sumOfFive = d.Number1+d.Number2+d.Number3+d.Number4+d.Number5;
+             if(sumOfFive>=15 && sumOfFive <= 45)
              {
-                @:count[@i] = counter;
-                break;
+                 @:count[0] += 1;
              }
-             @:counter++;
+              if(sumOfFive>45 && sumOfFive <= 75)
+             {
+                 @:count[1] += 1;
+             }
+              if(sumOfFive>75 && sumOfFive <= 105)
+             {
+                 @:count[2] += 1;
+             }
+              if(sumOfFive>105 && sumOfFive <= 135)
+             {
+                 @:count[3] += 1;
+             }
+               if(sumOfFive>135 && sumOfFive <= 165)
+             {
+                 @:count[4] += 1;
+             }
+                if(sumOfFive>165 && sumOfFive <= 195)
+             {
+                 @:count[5] += 1;
+             }
+             @:lengthOfDraws++;
          }
-    }
 
-    var parent = document.getElementById('delayFrequencyId');
-    var td1, td2,trElem;
-    for (var i = 1; i <= 45; i++) {
-        trElem = document.createElement("tr");
-        td1 = document.createElement("td");
-        td1.innerHTML = i;
-        td2 = document.createElement("td");
-        td2.innerHTML = count[i];
-        trElem.appendChild(td1);
-        trElem.appendChild(td2);
-        parent.appendChild(trElem);
-    }
+
+    var parent = document.getElementById('sumOfFiveId');
+    var p1, p2, p3, p4, p5, p6;
+    p1 = document.createElement("p");
+    p1.innerHTML = 'Το ποσοστό αθροίσματος των πέντε αριθμών που είναι μεγαλυτερο του 15 και μικρότερο του 45: ' + (count[0] * 100 / lengthOfDraws).toFixed(0) + '%';
+    p2 = document.createElement("p");
+    p2.innerHTML = 'Το ποσοστό αθροίσματος των πέντε αριθμών που είναι μεγαλυτερο του 45 και μικρότερο του 75: ' + (count[1] * 100 / lengthOfDraws).toFixed(0) + '%';
+    p3 = document.createElement("p");
+    p3.innerHTML = 'Το ποσοστό αθροίσματος των πέντε αριθμών που είναι μεγαλυτερο του 75 και μικρότερο του 105: ' + (count[2] * 100 / lengthOfDraws).toFixed(0) + '%';
+    p4 = document.createElement("p");
+    p4.innerHTML = 'Το ποσοστό αθροίσματος των πέντε αριθμών που είναι μεγαλυτερο του 105 και μικρότερο του 135: ' + (count[3] * 100 / lengthOfDraws).toFixed(0) + '%';
+    p5 = document.createElement("p");
+    p5.innerHTML = 'Το ποσοστό αθροίσματος των πέντε αριθμών που είναι μεγαλυτερο του 135 και μικρότερο του 165: ' + (count[4] * 100 / lengthOfDraws).toFixed(0) + '%';
+    p6 = document.createElement("p");
+    p6.innerHTML = 'Το ποσοστό αθροίσματος των πέντε αριθμών που είναι μεγαλυτερο του 165 και μικρότερο του 195: ' + (count[5] * 100 / lengthOfDraws).toFixed(0) + '%';
+    parent.appendChild(p1);
+    parent.appendChild(p2);
+    parent.appendChild(p3);
+    parent.appendChild(p4);
+    parent.appendChild(p5);
+    parent.appendChild(p6);
+
+
 </script>
