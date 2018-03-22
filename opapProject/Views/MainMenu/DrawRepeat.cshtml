@@ -1,0 +1,46 @@
+﻿@model List<Draw>
+
+<div class="row content">
+
+    @await Html.PartialAsync("_NavSide")
+
+    <div class="col-sm-10" id="drawRepeatId">
+        <h3>Επανάληψη ενος η περισσοτέρων αριθμών της προηγούμενης κλήρωσης</h3>
+
+    </div>
+
+</div>
+
+<script>
+    var counter = 0;
+    var repeatArray;
+    var drawLength;
+
+    @{
+        @:drawLength = @Model.Count();
+    }
+
+  @for (var i = 0; i < @Model.Count()-1; i++)
+  {
+      @:repeatArray = Array(46).fill(0);
+      @:repeatArray[@Model[i].Number1] = 1;
+      @:repeatArray[@Model[i].Number2] = 1;
+      @:repeatArray[@Model[i].Number3] = 1;
+      @:repeatArray[@Model[i].Number4] = 1;
+      @:repeatArray[@Model[i].Number5] = 1;
+      @:repeatArray[@Model[i+1].Number1] += 1;
+      @:repeatArray[@Model[i+1].Number2] += 1;
+      @:repeatArray[@Model[i+1].Number3] += 1;
+      @:repeatArray[@Model[i+1].Number4] += 1;
+      @:repeatArray[@Model[i+1].Number5] += 1;
+
+      @:repeatArray[@Model[i].Number1] > 1  || repeatArray[@Model[i].Number2] > 1 || repeatArray[@Model[i].Number3] > 1 ||repeatArray[@Model[i].Number4] > 1 || repeatArray[@Model[i].Number5] > 1 ? counter++ : 0;
+    }
+
+    var parent = document.getElementById('drawRepeatId');
+    var p1;
+    p1 = document.createElement("p");
+    p1.innerHTML = 'Η πιθανότητα είναι: ' + (counter*100 / drawLength).toFixed(0) +'%';
+    parent.appendChild(p1);
+
+</script>

@@ -54,5 +54,11 @@ namespace opapProject.Controllers
         {
             return View();
         }
+
+        public IActionResult DrawRepeat()
+        {
+            var listOfDraws = _repository.Draws.ToList();
+            return View(listOfDraws);
+        }
     }
 }
