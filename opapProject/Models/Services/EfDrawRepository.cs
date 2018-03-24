@@ -27,9 +27,10 @@ namespace opapProject.Models.Services
         }
 
         //Methods
-        public Task AddDraw()
+        public async Task AddDraw(Draw draw)
         {
-            throw new NotImplementedException();
+                db.Draw.Add(draw);
+                await db.SaveChangesAsync();          
         }
     }
 }

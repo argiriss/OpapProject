@@ -10,7 +10,7 @@ namespace opapProject.Models.Services
         IQueryable<Draw> Draws { get; }
 
         //Adding a new Draw to Database;
-        Task AddDraw();
+        Task AddDraw(Draw draw);
     }
 }
 
