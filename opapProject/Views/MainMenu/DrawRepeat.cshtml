@@ -13,15 +13,15 @@
 
 <script>
     var counter = 0;
-    var repeatArray;
-    var drawLength;
+    var repeatArray,drawLength,sum;
 
     @{
         @:drawLength = @Model.Count();
     }
-
-  @for (var i = 0; i < @Model.Count()-1; i++)
+    //loop through all the draws
+  @for (var i = 0; i < Model.Count()-1; i++)
   {
+      //zero fill array
       @:repeatArray = Array(46).fill(0);
       @:repeatArray[@Model[i].Number1] = 1;
       @:repeatArray[@Model[i].Number2] = 1;
@@ -32,10 +32,13 @@
       @:repeatArray[@Model[i+1].Number2] += 1;
       @:repeatArray[@Model[i+1].Number3] += 1;
       @:repeatArray[@Model[i+1].Number4] += 1;
-      @:repeatArray[@Model[i+1].Number5] += 1;
-
-      @:repeatArray[@Model[i].Number1] > 1  || repeatArray[@Model[i].Number2] > 1 || repeatArray[@Model[i].Number3] > 1 ||repeatArray[@Model[i].Number4] > 1 || repeatArray[@Model[i].Number5] > 1 ? counter++ : 0;
-    }
+      @:repeatArray[@Model[i + 1].Number5] += 1;
+      @:sum = repeatArray[@Model[i].Number1] + repeatArray[@Model[i].Number2] + repeatArray[@Model[i].Number3] + repeatArray[@Model[i].Number4] + repeatArray[@Model[i].Number5];
+      @:if(sum > 5)
+      {
+          @:counter++;
+      }
+  }
 
     var parent = document.getElementById('drawRepeatId');
     var p1;
